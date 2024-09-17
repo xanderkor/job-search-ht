@@ -42,17 +42,20 @@ export const CalculatorPage: React.FC = () => {
                 />
               ))}
 
-              <Button variant="contained" onClick={calculateMining} disabled={calculationInProgress}>
+              <Button variant="outlined" onClick={calculateMining} disabled={calculationInProgress}>
                 Calculate
               </Button>
             </section>
 
             <section>
               <CalculationResult data={calculationResult} />
-              <Button variant="outlined" onClick={calculateMining} href="https://hut8.com/" target="_blank">
-                Start Mining With Hut8
-              </Button>
             </section>
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 30 }}>
+            <Button variant="contained" size="large" onClick={calculateMining} href="https://hut8.com/" target="_blank">
+              Start Mining With Hut8
+            </Button>
           </div>
         </div>
       </div>

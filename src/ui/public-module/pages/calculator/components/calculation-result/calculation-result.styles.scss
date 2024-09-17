@@ -2,6 +2,8 @@
   &__table {
     min-width: 580px;
     max-width: 580px;
+    border: 1px solid rgba(255, 255, 255, 0.23);
+    border-radius: 8px;
   }
 
   &__metrics {
