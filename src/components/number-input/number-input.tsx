@@ -25,7 +25,6 @@ export const NumberInput: React.FC<NumberInputProps> = (props) => {
 
   return (
     <TextField 
-      // size="small"
       {...restProps}
       onChange={handleChange}
     />
