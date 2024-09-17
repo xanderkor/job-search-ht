@@ -1,0 +1,39 @@
+.CalculatorPage {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+
+  &__content {
+    min-height: calc(100% - 4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__sections {
+    margin-top: 12px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__params-panel {
+    width: 250px;
+    margin-right: 12px;
+  }
+
+  @media screen and (max-width: 768px) {
+    &__content {
+      display: block;
+      padding: 12px;
+    }
+
+    &__sections {
+      display: block;
+    }
+
+    &__params-panel {
+      width: 100%;
+    }
+  }
+}
