@@ -53,7 +53,7 @@ export const CalculatorPage: React.FC = () => {
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: 30 }}>
-            <Button variant="contained" size="large" onClick={calculateMining} href="https://hut8.com/" target="_blank">
+            <Button style={{ background: 'white' }} variant="contained" size="large" onClick={calculateMining} href="https://hut8.com/" target="_blank">
               Start Mining With Hut8
             </Button>
           </div>
