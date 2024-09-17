@@ -81,7 +81,7 @@ export const useCalculatorPageController = () => {
     } finally {
       setCalculationInProgress(false);
     }
-  }, [calculationParams]);
+  }, [calculationParams, validateCalculationParams]);
 
   const inputs = [
     {
