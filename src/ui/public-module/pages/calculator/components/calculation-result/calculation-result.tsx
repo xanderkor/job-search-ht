@@ -5,7 +5,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import { MiningCalculationDto } from '../../../../../../entities/mining/calculation/get-dto';
 
 import './calculation-result.styles.scss';
@@ -38,7 +37,7 @@ export const CalculationResult: React.FC<CalculationResultProps> = ({ data }) =>
 
   return (
     <div className="CalculationPageCalculationResult">
-      <TableContainer component={Paper} classes={{ root: 'CalculationPageCalculationResult__table' }}>
+      <TableContainer classes={{ root: 'CalculationPageCalculationResult__table' }}>
         <Table aria-label="feature table">
           <TableHead>
             <TableRow>

@@ -10,6 +10,7 @@ export const useCalculatorPageController = () => {
     initialInvestment: string;
   };
 
+  const [notificationMessage, setNotificationMessage] = React.useState<string>();
   const [calculationParams, setCalculationParams] = React.useState<Partial<LocalMiningRequestParams>>({});
   const [calculationResult, setCalculationResult] = React.useState<MiningCalculationDto>({
     dailyCost: 0,
@@ -52,7 +53,19 @@ export const useCalculatorPageController = () => {
     updateCalculationParams({ initialInvestment });
   }, [updateCalculationParams]);
 
+  const validateCalculationParams = React.useCallback(() => {
+    return Object.values(calculationParams).every((value) => Number(value) > 0);
+  }, [calculationParams]);
+
   const calculateMining = React.useCallback(async () => {
+    const isValid = validateCalculationParams();
+
+    if (!isValid) {
+      setNotificationMessage('Please fill in all the fields');
+
+      return;
+    }
+
     const processedRequestParams = Object.entries(calculationParams).reduce<CalculateMiningRequestParams>((acc, [key, value]) => {
       acc[key as keyof CalculateMiningRequestParams] = Number(value);
       return acc;
@@ -64,8 +77,7 @@ export const useCalculatorPageController = () => {
       setCalculationResult(response);
     } catch (err) {
       console.error(err);
-
-      // error
+      setNotificationMessage('An error occurred while calculating mining');
     } finally {
       setCalculationInProgress(false);
     }
@@ -98,7 +110,13 @@ export const useCalculatorPageController = () => {
     },
   ];
 
+  const closeNotification = React.useCallback(() => {
+    setNotificationMessage('');
+  }, []);
+
   return {
+    closeNotification,
+    notificationMessage,
     calculationInProgress,
     inputs,
     calculateMining,

@@ -5,6 +5,7 @@ import { CalculationResult } from './components/calculation-result';
 import LinearProgress from '@mui/material/LinearProgress';
 import { NumberInput } from '../../../../components/number-input';
 import { Typography } from '@mui/material';
+import Snackbar from '@mui/material/Snackbar';
 
 import './calculator.styles.scss';
 
@@ -14,6 +15,8 @@ export const CalculatorPage: React.FC = () => {
     calculateMining,
     calculationResult,
     calculationInProgress,
+    closeNotification,
+    notificationMessage,
   } = useCalculatorPageController();
 
   return (
@@ -53,6 +56,13 @@ export const CalculatorPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <Snackbar
+        open={Boolean(notificationMessage)}
+        autoHideDuration={2000}
+        onClose={closeNotification}
+        message={notificationMessage}
+      />
     </div>
   );
 };

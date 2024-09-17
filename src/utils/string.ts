@@ -1,5 +1,5 @@
 export const hasNumber = (value: string) => {
-  const floatNumber = parseFloat(value);
+  const floatNumber = Number(value);
 
   return typeof floatNumber === 'number' && !isNaN(floatNumber);
 };
